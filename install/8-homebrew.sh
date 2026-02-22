@@ -15,11 +15,11 @@ sudo -u "$USERNAME" bash -c \
 "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Load brew environment
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> /home/silas/.bashrc
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> "/home/$USERNAME/.bashrc"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 
 # Install packages
-sudo -u "$USERNAME" brew install jesseduffield/lazydocker/lazydocker
-sudo -u "$USERNAME" brew install anomalyco/tap/opencode
+sudo -u "$USERNAME" /home/linuxbrew/.linuxbrew/bin/brew install jesseduffield/lazydocker/lazydocker
+sudo -u "$USERNAME" /home/linuxbrew/.linuxbrew/bin/brew install anomalyco/tap/opencode
 
 echo "Homebrew setup complete!"
