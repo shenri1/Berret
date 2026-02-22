@@ -3,4 +3,4 @@ source ~/.local/share/berret/default/bash/aliases
 source ~/.local/share/berret/default/bash/functions
 source ~/.local/share/berret/default/bash/prompt
 source ~/.local/share/berret/default/bash/init
-source ~/.local/share/berret/default/bash/envs
+source ~/.local/share/berret/default/bash/editor
