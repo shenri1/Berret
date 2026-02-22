@@ -14,7 +14,7 @@ dnf remove docker \
 
 dnf config-manager addrepo --overwrite --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo
 
-dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 # Limit log size to avoid running out of disk
 mkdir -p /etc/docker
 echo '{"log-driver":"json-file","log-opts":{"max-size":"10m","max-file":"5"}}' | tee /etc/docker/daemon.json
