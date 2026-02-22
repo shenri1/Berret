@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # File system
-alias ls='eza -lh --group-directories-first --icons=auto'
+alias ls='ls -lh --color=auto --group-directories-first'
 alias lsa='ls -a'
-alias lt='eza --tree --level=2 --long --icons --git'
+alias lt='tree -C -L 2'
 alias lta='lt -a'
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias cd="zd"

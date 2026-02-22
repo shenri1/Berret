@@ -5,7 +5,6 @@ TERMINAL_PKGS=(
   wget
   curl
   fd-find
-  eza
   fzf
   ripgrep
   zoxide
