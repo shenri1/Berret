@@ -1,11 +1,16 @@
-# Copy over Berret configs
-cp -R ~/.local/share/berret/config/* ~/.config/
+USER_HOME="/home/$SUDO_USER"
+
+sudo -u $SUDO_USER mkdir -p "$USER_HOME/.local/share/applications"
+sudo -u $SUDO_USER mkdir -p "$USER_HOME/.config"
+
+cp -R "$BASE_DIR/config/"* "$USER_HOME/.config/" 2>/dev/null || true
+chown -R $SUDO_USER:$SUDO_USER "$USER_HOME/.config"
 
 # Ensure application directory exists for update-desktop-database
 mkdir -p ~/.local/share/applications
 
 # Use default bashrc from Berret
-echo "source ~/.local/share/berret/default/bash/rc" >>~/.bashrc
+echo "source $USER_HOME/.local/share/berret/default/bash/rc" >> "$USER_HOME/.bashrc"
 
 # Set common git config
 git config --global init.defaultBranch main

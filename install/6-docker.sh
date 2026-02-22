@@ -21,4 +21,4 @@ echo '{"log-driver":"json-file","log-opts":{"max-size":"10m","max-file":"5"}}' |
 
 sudo systemctl enable --now docker
 
-sudo usermod -aG docker ${USER}
+sudo usermod -aG docker $SUDO_USER
