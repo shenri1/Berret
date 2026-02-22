@@ -15,6 +15,6 @@ echo "Updating the system..."
 dnf upgrade -y --refresh
 
 # Essential audio/video codecs
-dnf groupupdate -y core
-dnf groupupdate -y multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
-dnf groupupdate -y sound-and-video
+dnf group upgrade -y core
+dnf group install -y multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+dnf group install -y sound-and-video
