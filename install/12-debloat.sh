@@ -10,8 +10,13 @@ KDE_BLOAT=(
   kmahjongg       # Game
   kmines          # Game
   kpat            # Game
-  mediawriter     # Bootable USB creator (use via Flatpak if needed)
+  elisa-player
   gnome-software  # Usually pulled as a dependency, not needed in pure KDE
+  kleopatra
+  kolourpaint
+  khelpcenter
+  krfb
+  krdc
 )
 
 echo "Removing bloatware..."
