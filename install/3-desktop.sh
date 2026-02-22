@@ -8,7 +8,6 @@ DNF_PKGS=(
   dnf-plugins-core
   mpv
   gimp
-  lpf-spotify-client
   xournalpp
   kdenlive
 )

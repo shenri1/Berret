@@ -18,7 +18,7 @@ echo -e "${GREEN}>>> Starting Fedora KDE Setup...${NC}"
 for script in "$BASE_DIR"/install/*.sh; do
   if [ -f "$script" ]; then
     echo -e "${BLUE}>>> Executing: $(basename "$script")${NC}"
-    bash "$script"
+    source "$script"
   fi
 done
 

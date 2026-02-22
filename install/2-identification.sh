@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dnf install gum
+dnf install -y gum
 
 # Configure identification
 echo -e "\nEnter identification for git and autocomplete..."
