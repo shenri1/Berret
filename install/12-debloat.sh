@@ -17,6 +17,7 @@ KDE_BLOAT=(
   khelpcenter
   krfb
   krdc
+  firefox
 )
 
 echo "Removing bloatware..."
