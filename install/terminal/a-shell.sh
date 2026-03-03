@@ -10,39 +10,3 @@ source ~/.local/share/berret/defaults/bash/shell
 [ -f ~/.inputrc ] && mv ~/.inputrc ~/.inputrc.bak
 # Configure the inputrc using Berret defaults
 cp ~/.local/share/berret/configs/inputrc ~/.inputrc
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-TERMINAL_PKGS=(
-  neovim
-  wget
-  kitty
-  curl
-  fd-find
-  fzf
-  ripgrep
-  zoxide
-  btop
-  bat
-  fastfetch
-  tldr
-  whois
-  git
-)
-
-echo "Installing terminal utilities..."
-dnf install -y --skip-unavailable "${TERMINAL_PKGS[@]}"
-
-clear
