@@ -23,7 +23,7 @@ then
 
     source ~/.local/share/berret/install/desktop.sh
 
-    kwriteconfig6 --file kscreenlockerrc --group Daemon --key Autolock false
+    kwriteconfig6 --file kscreenlockerrc --group Daemon --key Autolock true
 else
 
     echo "Only installing terminal tools..."

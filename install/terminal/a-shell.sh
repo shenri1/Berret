@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
 
+USER_HOME="/home/$SUDO_USER"
+
 # Configure the bash shell using Berret defaults
-[ -f ~/.bashrc ] && mv ~/.bashrc ~/.bashrc.bak
-cp ~/.local/share/berret/configs/bashrc ~/.bashrc
+[ -f "$USER_HOME/.bashrc" ] && mv "$USER_HOME/.bashrc" "$USER_HOME/.bashrc.bak"
+
+if ! grep -q "source $USER_HOME/.local/share/berret/default/bash/rc" "$USER_HOME/.bashrc" 2>/dev/null; then
+  echo "source $USER_HOME/.local/share/berret/default/bash/rc" >> "$USER_HOME/.bashrc"
+fi
 
 # Load the PATH for use later in the installers
-source ~/.local/share/berret/defaults/bash/shell
+source "$USER_HOME/.local/share/berret/default/bash/shell"
 
-[ -f ~/.inputrc ] && mv ~/.inputrc ~/.inputrc.bak
-# Configure the inputrc using Berret defaults
-cp ~/.local/share/berret/configs/inputrc ~/.inputrc
+[ -f "$USER_HOME/.inputrc" ] && mv "$USER_HOME/.inputrc" "$USER_HOME/.inputrc.bak"
+
+cp "$USER_HOME/.local/share/berret/default/bash/inputrc" "$USER_HOME/.inputrc"
+chown "$SUDO_USER:$SUDO_USER" "$USER_HOME/.inputrc"

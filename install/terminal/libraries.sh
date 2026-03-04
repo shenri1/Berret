@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-#TODO: in some way, install libjemalloc2 and libmagickwand-dev
+# TODO: find Fedora equivalents for libjemalloc2 and libmagickwand-dev
 
-sudo apt install -y \
+dnf install -y \
   pkg-config autoconf bison clang rustc pipx \
-  openssl-dev zlib-ng-compat-devel libyaml-devel libreadline-devel ncurses-devel libffi-devel gdbm-devel \
-  vips vips-tools ImageMagick mupdf\
-  redis sqlite-libs mysql-devel libpq-devel postgresql postgresql-server
+  openssl-devel zlib-ng-compat-devel libyaml-devel readline-devel ncurses-devel libffi-devel gdbm-devel \
+  vips-tools ImageMagick mupdf \
+  redis sqlite sqlite-devel mysql-devel libpq-devel postgresql postgresql-server

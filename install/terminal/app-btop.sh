@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-sudo dnf install -y btop
+dnf install -y btop
 
-mkdir -p ~/.config/btop/themes
-cp ~/.local/share/berret/config/btop.conf ~/.config/btop/btop.conf
-cp ~/.local/share/berret/themes/tokyo-night/btop.theme ~/.config/btop/themes/tokyo-night.theme
+USER_HOME="/home/$SUDO_USER"
+sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.config/btop/themes"
+cp "$USER_HOME/.local/share/berret/config/btop/btop.conf" "$USER_HOME/.config/btop/btop.conf"
+chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME/.config/btop"
