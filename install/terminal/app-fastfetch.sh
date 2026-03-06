@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-sudo dnf install -y fastfetch
+dnf install -y fastfetch
 
-if [ ! -f "$HOME/.config/fastfetch/config.jsonc" ]; then
-  mkdir -p ~/.config/fastfetch
-  cp ~/.local/share/berret/configs/fastfetch.jsonc ~/.config/fastfetch/config.jsonc
+USER_HOME="/home/$SUDO_USER"
+if [[ ! -f "$USER_HOME/.config/fastfetch/config.jsonc" ]]; then
+  sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.config/fastfetch"
+  cp "$USER_HOME/.local/share/berret/config/fastfetch/config.jsonc" "$USER_HOME/.config/fastfetch/config.jsonc"
+  chown "$SUDO_USER:$SUDO_USER" "$USER_HOME/.config/fastfetch/config.jsonc"
 fi

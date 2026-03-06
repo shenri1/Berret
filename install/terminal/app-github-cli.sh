@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sudo dnf install -y gh
+dnf install -y gh

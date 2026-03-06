@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
-sudo add-dnf-repository universe -y
-sudo add-dnf-repository ppa:agornostal/ulauncher -y
-sudo dnf update
-sudo dnf install ulauncher -y
+flatpak install -y flathub io.ulauncher.ulauncher
 
-mkdir -p ~/.config/autostart/
-cp ~/.local/share/berret/configs/ulauncher.desktop ~/.config/autostart/ulauncher.desktop
-gtk-launch ulauncher.desktop >/dev/null 2>&1
-sleep 2
-cp ~/.local/share/berret/configs/ulauncher.json ~/.config/ulauncher/settings.json
+sudo -u "$SUDO_USER" bash -c '
+  mkdir -p ~/.config/autostart/
+  cp ~/.local/share/berret/config/ulauncher/ulauncher.desktop ~/.config/autostart/ulauncher.desktop
+  gtk-launch ulauncher.desktop >/dev/null 2>&1
+  sleep 2
+  cp ~/.local/share/berret/config/ulauncher/settings.json ~/.config/ulauncher/settings.json
+'
