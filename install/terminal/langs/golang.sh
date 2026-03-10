@@ -13,8 +13,8 @@ cd -
 chown -R "$SUDO_USER:$SUDO_USER" "/home/$SUDO_USER/.local/share/go"
 
 sudo -u "$SUDO_USER" bash -c '
-  if ! grep -q "go/root/bin" ~/.bashrc; then
-    echo "export PATH=\"\$HOME/.local/share/go/root/bin:\$PATH\"" >> ~/.bashrc
-    echo "export GOPATH=\"\$HOME/.local/share/go\"" >> ~/.bashrc
+  if ! grep -q "go/root/bin" ~/.zshrc 2>/dev/null; then
+    echo "export PATH=\"\$HOME/.local/share/go/root/bin:\$PATH\"" >> ~/.zshrc
+    echo "export GOPATH=\"\$HOME/.local/share/go\"" >> ~/.zshrc
   fi
 '

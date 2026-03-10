@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-sudo dnf install -y obs-studio
+dnf install -y obs-studio

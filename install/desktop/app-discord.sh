@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd /tmp
-wget https://discord.com/api/download?platform=linux -O discord.rpm
-sudo dnf install ./discord.rpm -y
+wget -O discord.rpm "https://discord.com/api/download?platform=linux&format=rpm"
+dnf install -y ./discord.rpm
 rm discord.rpm
 cd -

@@ -1,4 +1,4 @@
- #!/usr/bin/env bash
+#!/usr/bin/env bash
 
- sudo dnf install -y flatpak
- sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+dnf install -y flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
