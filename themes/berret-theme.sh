@@ -45,21 +45,6 @@ pick_theme() {
 
 # ── appliers ─────────────────────────────────────────────────────────────────
 
-apply_kitty() {
-  local theme="$1"
-  local src="$THEMES_DIR/$theme/kitty.conf"
-  [[ -f "$src" ]] || { echo "  kitty: no theme file, skipping"; return; }
-
-  local dest="$HOME/.config/kitty/kitty.conf"
-  cp "$src" "$dest"
-
-  # Signal kitty to reload config in all running instances
-  if command -v kitty &>/dev/null; then
-    kitty @ set-colors --all --configured "$dest" 2>/dev/null || true
-  fi
-  echo "  ✓ kitty"
-}
-
 apply_alacritty() {
   local theme="$1"
   local src="$THEMES_DIR/$theme/alacritty.toml"
@@ -165,7 +150,6 @@ theme_exists "$THEME" || die "unknown theme '$THEME'. Available: ${SUPPORTED_THE
 
 echo "Applying theme: $THEME"
 
-apply_kitty    "$THEME"
 apply_alacritty "$THEME"
 apply_btop     "$THEME"
 apply_neovim   "$THEME"

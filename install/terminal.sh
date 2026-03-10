@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dnf install -y curl git unzip wget fd-find fzf bat whois ripgrep zoxide kitty
+dnf install -y curl git unzip wget fd-find fzf bat whois ripgrep zoxide
 
 for installer in "$BASE_DIR/install/terminal/required/"*.sh; do
     source "$installer"
