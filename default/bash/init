@@ -1,12 +1,33 @@
-if command -v zoxide &> /dev/null; then
-  eval "$(zoxide init bash)"
+# zoxide
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
 fi
 
-if command -v fzf &> /dev/null; then
-  if [[ -f /usr/share/bash-completion/completions/fzf ]]; then
-    source /usr/share/bash-completion/completions/fzf
+# fzf
+if command -v fzf &>/dev/null; then
+  if [[ -f /usr/share/fzf/shell/key-bindings.zsh ]]; then
+    source /usr/share/fzf/shell/key-bindings.zsh
   fi
-  if [[ -f /usr/share/fzf/key-bindings.bash ]]; then
-    source /usr/share/fzf/key-bindings.bash
+  if [[ -f /usr/share/zsh/site-functions/fzf ]]; then
+    source /usr/share/zsh/site-functions/fzf
   fi
 fi
+
+# ── ZLE keyboard shortcuts ────────────────────────────────────────────────────
+
+# Ctrl+A — move to beginning of line (standard) / select all command text
+# ZSH already binds Ctrl+A to beginning-of-line by default in emacs mode
+bindkey -e
+bindkey '^A' beginning-of-line
+
+# Ctrl+E — move to end of line (complement to Ctrl+A)
+bindkey '^E' end-of-line
+
+# Ctrl+Z — undo last edit (ZLE undo, not job suspend)
+# Note: job suspend is moved to Ctrl+\ to avoid conflict
+bindkey '^Z' undo
+stty susp undef        # unmap OS-level Ctrl+Z suspend
+stty dsusp undef       # unmap delayed suspend
+
+# Ctrl+W — delete word backwards (standard readline, useful in terminal)
+bindkey '^W' backward-kill-word

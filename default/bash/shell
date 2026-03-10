@@ -1,12 +1,20 @@
-# History control
-shopt -s histappend
-HISTCONTROL=ignoreboth
+# History
+HISTFILE=~/.zsh_history
 HISTSIZE=32768
-HISTFILESIZE="${HISTSIZE}"
+SAVEHIST=$HISTSIZE
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
+setopt APPEND_HISTORY
 
-# Autocompletion
-# source /usr/share/bash-completion/bash_completion
-
-# Set complete path
+# PATH
 export PATH="./bin:$HOME/.local/bin:$HOME/.local/share/berret/bin:$PATH"
-set +h
+
+# Completion
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# Misc
+setopt AUTO_CD
+setopt CORRECT

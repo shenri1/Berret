@@ -1,24 +1,23 @@
-#!/usr/bin/env bash
-
 # File system
 alias ls='ls -lh --color=auto --group-directories-first'
 alias lsa='ls -a'
 alias lt='tree -C -L 2'
 alias lta='lt -a'
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
-alias cd="zd"
+
+# Smart cd: uses zoxide when available, falls back to builtin
 zd() {
-  if [ $# -eq 0 ]; then
+  if [[ $# -eq 0 ]]; then
     builtin cd ~ && return
-  elif [ -d "$1" ]; then
+  elif [[ -d "$1" ]]; then
     builtin cd "$1"
   else
     z "$@" && printf " \U000F17A9 " && pwd || echo "Error: Directory not found"
   fi
 }
-open() {
-  xdg-open "$@" >/dev/null 2>&1
-}
+alias cd="zd"
+
+open() { xdg-open "$@" >/dev/null 2>&1 }
 
 # Directories
 alias ..='cd ..'

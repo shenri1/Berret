@@ -1,7 +1,19 @@
-# Technicolor dreams
-force_color_prompt=yes
-color_prompt=yes
+# Prompt: user@host:path on one line, arrow on next
+autoload -Uz colors && colors
 
-# Simple prompt with path in the window/pane title and caret for typing line
-PS1=$'\uf0a9 '
-PS1="\[\e]0;\w\a\]$PS1"
+# git branch in prompt
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats ' %F{yellow}(%b)%f'
+
+setopt PROMPT_SUBST
+
+# user@host in cyan, path in blue, git branch in yellow, arrow on next line
+PROMPT='%F{cyan}%n@%m%f:%F{blue}%~%f${vcs_info_msg_0_}
+%F{green}❯%f '
+
+# Window/pane title: just the current path (not the user line)
+precmd() {
+  vcs_info
+  print -Pn "\e]0;%~\a"
+}
