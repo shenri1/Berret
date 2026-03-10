@@ -2,14 +2,14 @@
 
 dnf install -y curl git unzip wget fd-find fzf bat whois ripgrep zoxide kitty
 
-for installer in ~/.local/share/berret/install/terminal/required/*.sh; do
+for installer in "$BASE_DIR/install/terminal/required/"*.sh; do
     source "$installer"
 done
 
-for installer in ~/.local/share/berret/install/terminal/langs/*.sh; do
+for installer in "$BASE_DIR/install/terminal/langs/"*.sh; do
     source "$installer"
 done
 
-for installer in ~/.local/share/berret/install/terminal/*.sh; do
+for installer in "$BASE_DIR/install/terminal/"*.sh; do
     source "$installer"
 done

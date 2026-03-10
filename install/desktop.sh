@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-for installer in ~/.local/share/berret/install/desktop/*.sh; do
+for installer in "$BASE_DIR/install/desktop/"*.sh; do
     source "$installer"
 done
 

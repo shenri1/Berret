@@ -10,9 +10,15 @@ cp -R "$BASE_DIR/config/"* "$USER_HOME/.config/" 2>/dev/null || true
 chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME/.config"
 
 cp -R "$BASE_DIR/default" "$USER_HOME/.local/share/berret/"
+cp -R "$BASE_DIR/themes"  "$USER_HOME/.local/share/berret/"
+cp -R "$BASE_DIR/bin"     "$USER_HOME/.local/share/berret/"
 chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME/.local/share/berret"
 
-if ! grep -q "source $USER_HOME/.local/share/berret/default/bash/rc" "$USER_HOME/.bashrc"; then
+# Install berret-theme to system PATH
+install -m 755 "$BASE_DIR/bin/berret-theme" /usr/local/bin/berret-theme
+install -m 755 "$BASE_DIR/bin/fedora-maintenance" /usr/local/bin/fedora-maintenance
+
+if ! grep -q "source $USER_HOME/.local/share/berret/default/bash/rc" "$USER_HOME/.bashrc" 2>/dev/null; then
   echo "source $USER_HOME/.local/share/berret/default/bash/rc" >> "$USER_HOME/.bashrc"
 fi
 
@@ -31,7 +37,7 @@ if [[ -n "${BERRET_USER_EMAIL//[[:space:]]/}" ]]; then
   sudo -u "$SUDO_USER" git config --global user.email "$BERRET_USER_EMAIL"
 fi
 
-sudo -u "$SUDO_USER" tee "$USER_HOME/.XCompose" >/dev/null <<EOF
+sudo -u "$SUDO_USER" tee "$USER_HOME/.XCompose" > /dev/null << EOF
 include "%H/.local/share/berret/default/xcompose"
 
 # Identification

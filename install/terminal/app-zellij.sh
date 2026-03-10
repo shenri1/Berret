@@ -1,12 +1,22 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd /tmp
 wget -O zellij.tar.gz "https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_64-unknown-linux-musl.tar.gz"
 tar -xf zellij.tar.gz zellij
-sudo install zellij /usr/local/bin
+install zellij /usr/local/bin
 rm zellij.tar.gz zellij
 cd -
 
-mkdir -p ~/.config/zellij/themes
-[ ! -f "$HOME/.config/zellij/config.kdl" ] && cp ~/.local/share/berret/configs/zellij.kdl ~/.config/zellij/config.kdl
-cp ~/.local/share/berret/themes/tokyo-night/zellij.kdl ~/.config/zellij/themes/tokyo-night.kdl
+USER_HOME="/home/$SUDO_USER"
+sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.config/zellij/themes"
+
+if [[ ! -f "$USER_HOME/.config/zellij/config.kdl" ]]; then
+  cp "$BASE_DIR/config/zellij/config.kdl" "$USER_HOME/.config/zellij/config.kdl"
+  chown "$SUDO_USER:$SUDO_USER" "$USER_HOME/.config/zellij/config.kdl"
+fi
+
+for theme_file in "$BASE_DIR/themes"/*/zellij.kdl; do
+  theme_name=$(basename "$(dirname "$theme_file")")
+  cp "$theme_file" "$USER_HOME/.config/zellij/themes/$theme_name.kdl"
+done
+chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME/.config/zellij/themes"

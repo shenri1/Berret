@@ -1,31 +1,27 @@
 #!/usr/bin/env bash
 
-# Immediately exit on error
 set -e
 
-#Check if the distro is supported
-source ~/.local/share/berret/install/check-version.sh
+BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export BASE_DIR
 
+source "$BASE_DIR/install/check-version.sh"
 
-#Time for some choices
-source ~/.local/share/berret/install/terminal/required/gum-install.sh >/dev/null
-source ~/.local/share/berret/install/identification.sh
-source ~/.local/share/berret/install/optimizations.sh
-source ~/.local/share/berret/install/debloat.sh
-source ~/.local/share/berret/install/fonts.sh
+source "$BASE_DIR/install/terminal/required/gum-install.sh" >/dev/null
+source "$BASE_DIR/install/identification.sh"
+source "$BASE_DIR/install/optimizations.sh"
+source "$BASE_DIR/install/debloat.sh"
+source "$BASE_DIR/install/fonts.sh"
 
-if [[ "$XDG_CURRENT_DESKTOP" == *"KDE"* ]];
-then
+if [[ "$XDG_CURRENT_DESKTOP" == *"KDE"* ]]; then
     kwriteconfig6 --file kscreenlockerrc --group Daemon --key Autolock false
 
     echo "Installing terminal and desktop tools..."
-    source ~/.local/share/berret/install/terminal.sh
-
-    source ~/.local/share/berret/install/desktop.sh
+    source "$BASE_DIR/install/terminal.sh"
+    source "$BASE_DIR/install/desktop.sh"
 
     kwriteconfig6 --file kscreenlockerrc --group Daemon --key Autolock true
 else
-
     echo "Only installing terminal tools..."
-    source ~/.local/share/berret/install/terminal.sh
+    source "$BASE_DIR/install/terminal.sh"
 fi
