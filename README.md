@@ -1,4 +1,4 @@
-# Berret — Fedora KDE Setup
+# Beret — Fedora KDE Setup
 
 Personal dotfiles and automated setup for a Fedora KDE environment. Installs packages, configures the desktop, sets up the terminal, and applies all config files in one shot.
 
@@ -49,7 +49,7 @@ reboot
 
 After installation, the following will be set up under your home directory:
 
-- **`~/.bashrc`** — sources the Berret shell config (aliases, functions, prompt, editor)
+- **`~/.bashrc`** — sources the Beret shell config (aliases, functions, prompt, editor)
 - **`~/.config/`** — receives app configs (kitty, btop, fastfetch, xournalpp)
 - **`~/.local/share/beret/`** — stores the bash modules and XCompose file
 - **`~/.XCompose`** — keyboard shortcuts for emoji and typography, plus your name/email
