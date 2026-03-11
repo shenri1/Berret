@@ -8,7 +8,7 @@ setopt SHARE_HISTORY
 setopt APPEND_HISTORY
 
 # PATH
-export PATH="./bin:$HOME/.local/bin:$HOME/.local/share/berret/bin:$PATH"
+export PATH="./bin:$HOME/.local/bin:$HOME/.local/share/beret/bin:$PATH"
 
 # Completion
 autoload -Uz compinit && compinit

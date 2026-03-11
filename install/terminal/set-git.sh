@@ -4,20 +4,20 @@ USER_HOME="/home/$SUDO_USER"
 
 sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.local/share/applications"
 sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.config"
-sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.local/share/berret"
+sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.local/share/beret"
 
 cp -R "$BASE_DIR/config/"* "$USER_HOME/.config/" 2>/dev/null || true
 chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME/.config"
 
-cp -R "$BASE_DIR/default" "$USER_HOME/.local/share/berret/"
-cp -R "$BASE_DIR/themes"  "$USER_HOME/.local/share/berret/"
-cp -R "$BASE_DIR/bin"     "$USER_HOME/.local/share/berret/"
-chmod +x "$USER_HOME/.local/share/berret/default/zsh/"*
-chmod +x "$USER_HOME/.local/share/berret/default/bash/"* 2>/dev/null || true
-chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME/.local/share/berret"
+cp -R "$BASE_DIR/default" "$USER_HOME/.local/share/beret/"
+cp -R "$BASE_DIR/themes"  "$USER_HOME/.local/share/beret/"
+cp -R "$BASE_DIR/bin"     "$USER_HOME/.local/share/beret/"
+chmod +x "$USER_HOME/.local/share/beret/default/zsh/"*
+chmod +x "$USER_HOME/.local/share/beret/default/bash/"* 2>/dev/null || true
+chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME/.local/share/beret"
 
-# Install berret-theme and maintenance script to system PATH
-install -m 755 "$BASE_DIR/bin/berret-theme" /usr/local/bin/berret-theme
+# Install beret-theme and maintenance script to system PATH
+install -m 755 "$BASE_DIR/bin/beret-theme" /usr/local/bin/beret-theme
 install -m 755 "$BASE_DIR/bin/fedora-maintenance" /usr/local/bin/fedora-maintenance
 
 sudo -u "$SUDO_USER" git config --global init.defaultBranch main
@@ -36,7 +36,7 @@ if [[ -n "${BERRET_USER_EMAIL//[[:space:]]/}" ]]; then
 fi
 
 sudo -u "$SUDO_USER" tee "$USER_HOME/.XCompose" > /dev/null << XCOMPOSE
-include "%H/.local/share/berret/default/xcompose"
+include "%H/.local/share/beret/default/xcompose"
 
 # Identification
 <Multi_key> <space> <n> : "$BERRET_USER_NAME"

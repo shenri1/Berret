@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# berret-theme — switch the active theme across all supported apps
-# Usage: berret-theme [theme-name]
-#        berret-theme          (interactive picker)
+# beret-theme — switch the active theme across all supported apps
+# Usage: beret-theme [theme-name]
+#        beret-theme          (interactive picker)
 
-BERRET_DIR="$HOME/.local/share/berret"
+BERRET_DIR="$HOME/.local/share/beret"
 THEMES_DIR="$BERRET_DIR/themes"
 CURRENT_FILE="$BERRET_DIR/.current-theme"
 

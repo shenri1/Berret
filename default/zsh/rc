@@ -1,6 +1,6 @@
-source ~/.local/share/berret/default/zsh/shell
-source ~/.local/share/berret/default/zsh/aliases
-source ~/.local/share/berret/default/zsh/functions
-source ~/.local/share/berret/default/zsh/prompt
-source ~/.local/share/berret/default/zsh/init
-source ~/.local/share/berret/default/zsh/editor
+source ~/.local/share/beret/default/zsh/shell
+source ~/.local/share/beret/default/zsh/aliases
+source ~/.local/share/beret/default/zsh/functions
+source ~/.local/share/beret/default/zsh/prompt
+source ~/.local/share/beret/default/zsh/init
+source ~/.local/share/beret/default/zsh/editor

@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+source $BASE_DIR/bin/beret-sub/header.sh
+source $BASE_DIR/bin/beret-sub/menu.sh

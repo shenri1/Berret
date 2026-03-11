@@ -24,7 +24,7 @@ Install scripts live in `install/` and are sourced in alphabetical order. A few 
 - **Use `sudo -u "$SUDO_USER" bash -c '...'`** when commands must run as the regular user (e.g. installing user-level tools, writing dotfiles)
 - **Always pass `-y`** to `dnf install` so the script doesn't stall waiting for input
 - **Never use `sudo` inside these scripts** — they already run as root via `sudo ./install.sh`
-- **Use `$BASE_DIR`** for all paths into the repo — never hardcode `~/.local/share/berret/`
+- **Use `$BASE_DIR`** for all paths into the repo — never hardcode `~/.local/share/beret/`
 
 ---
 
@@ -40,7 +40,7 @@ Config files live in `config/` and are copied to `~/.config/` during `set-git.sh
 
 ## Shell modules
 
-The default shell for berret is **zsh** (via Oh My Zsh). Shell config lives in `default/zsh/` and is split into focused files:
+The default shell for beret is **zsh** (via Oh My Zsh). Shell config lives in `default/zsh/` and is split into focused files:
 
 | File | Purpose |
 |------|---------|
@@ -65,4 +65,4 @@ Keep each file focused on its purpose. If something doesn't fit cleanly, create 
 - Prefer `[[ ]]` over `[ ]` for conditionals in bash
 - Quote all variables: `"$VAR"`, not `$VAR`
 - Keep scripts idempotent where possible — safe to run more than once without breaking things
-- Use `$BASE_DIR` for all paths into the berret repo
+- Use `$BASE_DIR` for all paths into the beret repo
