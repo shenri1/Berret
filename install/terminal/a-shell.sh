@@ -2,7 +2,7 @@
 
 USER_HOME="/home/$SUDO_USER"
 
-dnf install -y zsh util-linux-user
+dnf install -y util-linux-user
 
 chsh -s "$(which zsh)" "$SUDO_USER"
 
