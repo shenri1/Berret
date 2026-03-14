@@ -14,7 +14,6 @@ sudo -u "$SUDO_USER" zsh -c '
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 '
 
-# Install plugins
 sudo -u "$SUDO_USER" zsh -c '
   ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
@@ -32,13 +31,21 @@ sudo -u "$SUDO_USER" zsh -c '
 # Backup old zshrc if exists
 [ -f "$USER_HOME/.zshrc" ] && mv "$USER_HOME/.zshrc" "$USER_HOME/.zshrc.bak"
 
-# Write .zshrc as the actual user
+# Write .zshrc
 sudo -u "$SUDO_USER" tee "$USER_HOME/.zshrc" > /dev/null << ZSHRC
 # Created by beret
 export ZSH="\$HOME/.oh-my-zsh"
 
-ZSH_THEME=""
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+ZSH_THEME="robbyrussell"
+
+plugins=(
+  git
+  docker
+  docker-compose
+  npm
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+)
 
 source "\$ZSH/oh-my-zsh.sh"
 

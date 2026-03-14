@@ -33,3 +33,19 @@ alias d='docker'
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 alias gcad='git commit -a --amend'
+
+# Docker
+alias dc='docker compose'
+alias dps='docker ps'
+alias dimg='docker images'
+
+# System
+alias ports='ss -tulnp'
+alias myip='curl -s ifconfig.me'
+alias reload='source ~/.zshrc'
+alias path='echo $PATH | tr ":" "\n"'
+
+# Git extras
+alias glog='git log --oneline --graph --decorate'
+alias gundo='git reset --soft HEAD~1'
+alias gdiff='git diff --stat'
