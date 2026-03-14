@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
 
-source $BASE_DIR/bin/beret-sub/header.sh
-source $BASE_DIR/bin/beret-sub/menu.sh
+export BASE_DIR="$HOME/.local/share/beret"
+source "$BASE_DIR/bin/beret-sub/header.sh"
+source "$BASE_DIR/bin/beret-sub/menu.sh"
