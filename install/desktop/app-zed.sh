@@ -1,3 +1,3 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 curl https://zed.dev/install.sh | sh

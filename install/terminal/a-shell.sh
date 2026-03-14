@@ -32,16 +32,10 @@ sudo -u "$SUDO_USER" zsh -c '
 # Backup old zshrc if exists
 [ -f "$USER_HOME/.zshrc" ] && mv "$USER_HOME/.zshrc" "$USER_HOME/.zshrc.bak"
 
-<<<<<<< HEAD
-if ! grep -q "source $USER_HOME/.local/share/beret/default/zsh/rc" "$USER_HOME/.zshrc" 2>/dev/null; then
-  echo "source $USER_HOME/.local/share/beret/default/zsh/rc" >> "$USER_HOME/.zshrc"
-fi
-=======
 # Write .zshrc as the actual user
 sudo -u "$SUDO_USER" tee "$USER_HOME/.zshrc" > /dev/null << ZSHRC
 # Created by berret
 export ZSH="\$HOME/.oh-my-zsh"
->>>>>>> 2c65214 (Changes bash to zsh in scripts)
 
 ZSH_THEME=""
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
