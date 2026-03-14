@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-THEME_NAMES=("Tokyo Night" "Catppuccin" "Nord" "Gruvbox" "Rose Pine" "Matte Black" "Osaka Jade")
+THEME_NAMES=("Tokyo Night" "Catppuccin" "Nordic" "Gruvbox" "Rose Pine" "Materia Black" "Osaka Jade")
 THEME=$(gum choose "${THEME_NAMES[@]}" "<< Back" --header "Choose your theme" --height 12 | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
 if [ -n "$THEME" ] && [ "$THEME" != "<<-back" ]; then
