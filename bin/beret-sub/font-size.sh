@@ -1,4 +1,4 @@
-#! usr/bin/env zsh
+#!/usr/bin/env zsh
 
 choice=$(gum choose {7..14} "<< Back" --height 11 --header "Choose your terminal fontsize.")
 

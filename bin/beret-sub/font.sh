@@ -1,4 +1,4 @@
-#!usr/bin/env zsh
+#!/usr/bin/env zsh
 
 set_font(){
     local font_name=$1
