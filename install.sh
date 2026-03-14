@@ -8,8 +8,8 @@ if ! command -v zsh &>/dev/null; then
   dnf install -y zsh
 fi
 
-if [[ -z "$BERRET_ZSH" ]]; then
-  export BERRET_ZSH=1
+if [[ -z "$BERET_ZSH" ]]; then
+  export BERET_ZSH=1
   exec zsh "$0" "$@"
 fi
 

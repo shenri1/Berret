@@ -34,7 +34,7 @@ sudo -u "$SUDO_USER" zsh -c '
 
 # Write .zshrc as the actual user
 sudo -u "$SUDO_USER" tee "$USER_HOME/.zshrc" > /dev/null << ZSHRC
-# Created by berret
+# Created by beret
 export ZSH="\$HOME/.oh-my-zsh"
 
 ZSH_THEME=""
@@ -42,7 +42,7 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source "\$ZSH/oh-my-zsh.sh"
 
-source "$USER_HOME/.local/share/berret/default/zsh/rc"
+source "$USER_HOME/.local/share/beret/default/zsh/rc"
 ZSHRC
 
 # .inputrc
