@@ -38,20 +38,6 @@ action = "Paste"
 mouse  = "Middle"
 action = "PasteSelection"
 
-# ── Keyboard ──────────────────────────────────────────────────────────────────
-# Ctrl+T → new zellij tab
-# Sends the zellij default keybind sequence: Ctrl+T in normal mode opens new tab
-[[keyboard.bindings]]
-key    = "T"
-mods   = "Control"
-chars  = "\u0002c"      # zellij: prefix + c = new tab
-
-# Ctrl+W → close current zellij tab/pane
-[[keyboard.bindings]]
-key    = "W"
-mods   = "Control"
-chars  = "\u0002x"      # zellij: prefix + x = close pane
-
 # Ctrl+Shift+C / Ctrl+Shift+V — explicit copy/paste (always available)
 [[keyboard.bindings]]
 key    = "C"
