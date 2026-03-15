@@ -13,8 +13,10 @@ if [[ -z "$BERET_ZSH" ]]; then
   exec zsh "$0" "$@"
 fi
 
-source "$BASE_DIR/install/check-version.sh"
+LOG_FILE="/var/log/beret-install.log"
+exec > >(tee -a "$LOG_FILE") 2>&1
 
+source "$BASE_DIR/install/check-version.sh"
 source "$BASE_DIR/install/terminal/required/gum-install.sh" >/dev/null
 source "$BASE_DIR/install/identification.sh"
 source "$BASE_DIR/install/optimizations.sh"
@@ -23,13 +25,18 @@ source "$BASE_DIR/install/fonts.sh"
 
 if [[ "$XDG_CURRENT_DESKTOP" == *"KDE"* ]]; then
     kwriteconfig6 --file kscreenlockerrc --group Daemon --key Autolock false
-
     echo "Installing terminal and desktop tools..."
     source "$BASE_DIR/install/terminal.sh"
     source "$BASE_DIR/install/desktop.sh"
-
     kwriteconfig6 --file kscreenlockerrc --group Daemon --key Autolock true
 else
     echo "Only installing terminal tools..."
     source "$BASE_DIR/install/terminal.sh"
 fi
+
+echo ""
+echo "═══════════════════════════════════════════"
+echo " Beret install — completed successfully ✓"
+echo " $(date '+%Y-%m-%d %H:%M:%S')"
+echo "═══════════════════════════════════════════"
+echo ""

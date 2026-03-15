@@ -27,7 +27,6 @@ bindkey '^E' end-of-line
 # Note: job suspend is moved to Ctrl+\ to avoid conflict
 bindkey '^Z' undo
 stty susp undef        # unmap OS-level Ctrl+Z suspend
-stty dsusp undef       # unmap delayed suspend
 
 # Ctrl+W — delete word backwards (standard readline, useful in terminal)
 bindkey '^W' backward-kill-word

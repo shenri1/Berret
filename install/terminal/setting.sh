@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+USER_HOME="/home/$SUDO_USER"
+
+sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.local/share/applications"
+sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.config"
+sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.local/share/beret"
+
+cp -R "$BASE_DIR/config/"* "$USER_HOME/.config/" 2>/dev/null || true
+chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME/.config"
+
+cp -R "$BASE_DIR/default" "$USER_HOME/.local/share/beret/"
+cp -R "$BASE_DIR/themes"  "$USER_HOME/.local/share/beret/"
+cp -R "$BASE_DIR/bin"     "$USER_HOME/.local/share/beret/"
+chmod +x "$USER_HOME/.local/share/beret/default/zsh/"*
+chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME/.local/share/beret"
+
+# Install beret-theme and maintenance script to system PATH
+install -m 755 "$BASE_DIR/bin/beret-theme" /usr/local/bin/beret-theme
+install -m 755 "$BASE_DIR/bin/fedora-maintenance" /usr/local/bin/fedora-maintenance
+install -m 755 "$BASE_DIR/bin/beret" /usr/local/bin/beret

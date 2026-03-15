@@ -1,19 +1,21 @@
 #!/usr/bin/env zsh
 
-cd /tmp
-
 ARCH=$(uname -m)
+
+cd /tmp
 curl -LO "https://download.swift.org/swiftly/linux/swiftly-${ARCH}.tar.gz"
 tar -xzf "swiftly-${ARCH}.tar.gz"
-./swiftly init --quiet-shell-followup
+chown "$SUDO_USER:$SUDO_USER" swiftly "swiftly-${ARCH}.tar.gz" LICENSE.txt 2>/dev/null || true
 
-# Add to zshrc
-sudo -u "$SUDO_USER" zsh -c '
-  SWIFTLY_ENV="${SWIFTLY_HOME_DIR:-$HOME/.local/share/swiftly}/env.sh"
-  if ! grep -q "swiftly/env.sh" ~/.zshrc 2>/dev/null; then
-    echo "[[ -f \"$SWIFTLY_ENV\" ]] && source \"$SWIFTLY_ENV\"" >> ~/.zshrc
+sudo -u "$SUDO_USER" zsh -c "
+  cd /tmp
+  ./swiftly init --assume-yes --quiet-shell-followup
+  rm -f swiftly-${ARCH}.tar.gz swiftly LICENSE.txt .swift-version
+
+  SWIFTLY_ENV=\"\${SWIFTLY_HOME_DIR:-\$HOME/.local/share/swiftly}/env.sh\"
+  if ! grep -q 'swiftly/env.sh' ~/.zshrc 2>/dev/null; then
+    echo \"[[ -f \\\"\$SWIFTLY_ENV\\\" ]] && source \\\"\$SWIFTLY_ENV\\\"\" >> ~/.zshrc
   fi
-'
+"
 
-rm -f "swiftly-${ARCH}.tar.gz" swiftly LICENSE.txt .swift-version
 cd -

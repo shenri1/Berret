@@ -6,6 +6,7 @@ cd /tmp
 curl -sSLO "https://go.dev/dl/${GO_VERSION}.linux-amd64.tar.gz"
 tar -xf "${GO_VERSION}.linux-amd64.tar.gz"
 mkdir -p "/home/$SUDO_USER/.local/share/go"
+rm -rf "/home/$SUDO_USER/.local/share/go/root"
 mv go "/home/$SUDO_USER/.local/share/go/root"
 rm "${GO_VERSION}.linux-amd64.tar.gz"
 cd -
